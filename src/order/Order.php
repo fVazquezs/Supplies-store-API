@@ -2,17 +2,19 @@
 class Order
 {
     public $id;
-    public $userId;
+    public $user;
     public $notes;
     public $date;
     public $status;
+    public $products;
 
-    public function __construct($id, $userId, $notes, $date, $status)
+    public function __construct($id, $user, $notes, $date, $status, $products)
     {
         $this->id = $id;
-        $this->userId = $userId;
+        $this->user = $user;
         $this->notes = $notes;
         $this->date = $date;
         $this->status = $status;
+        $this->products = $products;
     }
 }

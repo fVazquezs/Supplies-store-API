@@ -4,15 +4,16 @@
     {
         public $pdo;
 
-        public function list()
+        public function listByOrder($id)
         {
             $pdo = PDOFactory::getConnection();
-            $query = "SELECT * FROM productOrder";
+            $query = "SELECT productorder.*, products.name FROM productOrder, products WHERE orderId=:id AND productOrder.productId=products.id";
             $command = $pdo->prepare($query);
+            $command->bindParam("id", $id);
             $command->execute();
             $productOrders = array();
             while ($row = $command->fetch(PDO::FETCH_OBJ)) {
-                $productOrders[] = new ProductOrder($row->id, $row->productId, $row->orderId, $row->quantity);
+                $productOrders[] = new ProductOrder($row->productId, $row->name, $row->orderId, $row->quantity);
             }
             return $productOrders;
         }
