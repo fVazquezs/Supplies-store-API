@@ -20,7 +20,7 @@
 
         public function insert(ProductOrder $productOrder)
         {
-            $query = "INSERT INTO productOrder (productId, orderId, quantity) VALUES (:productId, :orderId, :quantity)";
+            $query = "INSERT IGNORE INTO productOrder (productId, orderId, quantity) VALUES (:productId, :orderId, :quantity)";
             $pdo = PDOFactory::getConnection();
             $command = $pdo->prepare($query);
             $command->bindParam(":productId", $productOrder->productId);
@@ -33,6 +33,7 @@
 
         public function update(ProductOrder $productOrder)
         {
+            $this->insert($productOrder);
             $query = "UPDATE productOrder SET quantity=:quantity WHERE productId=:productId AND orderId=:orderId";
             $pdo = PDOFactory::getConnection();
             $command = $pdo->prepare($query);
@@ -45,10 +46,10 @@
 
         public function delete($id)
         {
-            $query = "DELETE FROM productOrder WHERE productId=:productId AND orderId=:orderId";
+            $query = "DELETE FROM productOrder WHERE orderId=:orderId";
             $pdo = PDOFactory::getConnection();
             $command = $pdo->prepare($query);
-            $command->bindParam(":id", $id);
+            $command->bindParam(":orderId", $id);
             $command->execute();
             return $id;
         }

@@ -49,26 +49,25 @@ require_once "src/productOrder/ProductOrderCtrl.php";
             return $order;
         }
 
-        // public function update(Order $order)
-        // {
-        //     $query = "UPDATE orders SET name=:name, email=:email, departmentId=:departmentId WHERE id=:id";
-        //     $pdo = PDOFactory::getConnection();
-        //     $command = $pdo->prepare($query);
-        //     $command->bindParam(":id", $order->id);
-        //     $command->bindParam(":name", $order->name);
-        //     $command->bindParam(":email", $order->email);
-        //     $command->bindParam(":departmentId", $order->departmentId);
-        //     $command->execute();
-        //     return $order;
-        // }
-        //
-        // public function delete($id)
-        // {
-        //     $query = "DELETE FROM orders WHERE id=:id";
-        //     $pdo = PDOFactory::getConnection();
-        //     $command = $pdo->prepare($query);
-        //     $command->bindParam(":id", $id);
-        //     $command->execute();
-        //     return $id;
-        // }
+        public function update(Order $order)
+        {
+            $query = "UPDATE orders SET notes=:notes, status=:status WHERE id=:id";
+            $pdo = PDOFactory::getConnection();
+            $command = $pdo->prepare($query);
+            $command->bindParam(":id", $order->id);
+            $command->bindParam(":notes", $order->notes);
+            $command->bindParam(":status", $order->status);
+            $command->execute();
+            return $order;
+        }
+
+        public function delete($id)
+        {
+            $query = "DELETE FROM orders WHERE id=:id";
+            $pdo = PDOFactory::getConnection();
+            $command = $pdo->prepare($query);
+            $command->bindParam(":id", $id);
+            $command->execute();
+            return $id;
+        }
     }

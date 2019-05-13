@@ -13,35 +13,24 @@ class ProductOrderCtrl
 
     public function insert($orderId, $productId, $quantity)
     {
-        $productOrder = new ProductOrder($productId, null, $orderId, $quantity);
+        $productOrder = new ProductOrder($productId, "", $orderId, $quantity);
         $dao = new ProductOrderDAO();
         $dao->insert($productOrder);
-        $resp = $resp->withJson($productOrder);
-        $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withStatus(201);
-        return $resp;
+        return $prodOrder;
     }
 
-    public function update($req, $resp, $args)
+    public function update($orderId, $productId, $quantity)
     {
-        $id = (int) $args["id"];
-        $var = $req->getParsedBody();
-        $productOrder = new ProductOrder($var["productId"], $var["orderId"], $var["quantity"]);
+        $productOrder = new ProductOrder($productId, "", $orderId, $quantity);
         $dao = new ProductOrderDAO();
         $dao->update($productOrder);
-        $resp = $resp->withJson($productOrder);
-        $resp = $resp->withHeader("Content-type", "application/json");
-        return $resp;
+        return $prodOrder;
     }
 
-    public function delete($req, $resp, $args)
+    public function delete($id)
     {
-        $id = (int) $args["id"];
         $dao = new ProductOrderDAO();
-        $productOrder = $dao->searchById($id);
         $dao->delete($id);
-        $resp = $resp->withJson($productOrder);
-        $resp = $resp->withHeader("Content-type", "application/json");
-        return $resp;
+        return $productOrder;
     }
 }
