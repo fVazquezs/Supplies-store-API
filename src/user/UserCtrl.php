@@ -53,7 +53,7 @@ class UserCtrl
     public function insert($req, $resp, $args)
     {
         $var = $req->getParsedBody();
-        $user = new User(0, $var["name"], $var["email"], $var["departmentId"]);
+        $user = new User(0, $var["name"], $var["email"], $var["password"], $var["departmentId"]);
         $dao = new UserDAO();
         $dao->insert($user);
         $resp = $resp->withJson($user);
@@ -66,7 +66,7 @@ class UserCtrl
     {
         $id = (int) $args["id"];
         $var = $req->getParsedBody();
-        $user = new User($id, $var["name"], $var["email"], $var["departmentId"]);
+        $user = new User($id, $var["name"], $var["email"], $var["password"], $var["departmentId"]);
         $dao = new UserDAO();
         $dao->update($user);
         $resp = $resp->withJson($user);
