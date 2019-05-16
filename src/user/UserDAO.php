@@ -55,7 +55,7 @@
 
         public function update(User $user)
         {
-            $query = "UPDATE users SET name=:name, email=:email, password=:password departmentId=:departmentId WHERE id=:id";
+            $query = "UPDATE users SET name=:name, email=:email, password=:password, departmentId=:departmentId WHERE id=:id";
             $pdo = PDOFactory::getConnection();
             $command = $pdo->prepare($query);
             $command->bindParam(":id", $user->id);
