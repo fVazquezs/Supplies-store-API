@@ -3,7 +3,6 @@
 class PDOFactory
 {
     private static $pdo;
-
     public static function getConnection()
     {
         if (!isset($pdo)) {

@@ -2,9 +2,37 @@
 require_once "User.php";
 require_once "UserDAO.php";
 
-class UserCtrl {
+use \Firebase\JWT\JWT;
 
-    public function list($req, $resp, $args) {
+class UserCtrl
+{
+    private $secretkey = "sT0r3";
+
+    public function authenticate($req, $resp, $args)
+    {
+        $var = $req->getParsedBody();
+
+        $dao = new UserDAO();
+
+        $user = $dao->searchByEmail($var["email"]);
+
+        if ($user->password == $var["password"]) {
+            $tokenpayload = array(
+                "user_id" => $user->id,
+                "user_name" => $user->name
+              //  "login_datetime" => new DateTime('now', new DateTimeZone('America/Sao_paulo'))
+            );
+
+            $token = JWT::encode($tokenpayload, $this->secretkey);
+
+            return $resp->withJson(["token" => $token]);
+        } else {
+            return $resp->withJson(401);
+        }
+    }
+
+    public function list($req, $resp, $args)
+    {
         $dao = new UserDAO();
         $list = $dao->list();
         $resp = $resp->withJson($list);
@@ -12,7 +40,8 @@ class UserCtrl {
         return $resp;
     }
 
-    public function searchById($req, $resp, $args) {
+    public function searchById($req, $resp, $args)
+    {
         $id = (int) $args["id"];
         $dao = new UserDAO();
         $user = $dao->searchById($id);
@@ -21,7 +50,8 @@ class UserCtrl {
         return $resp;
     }
 
-    public function insert($req, $resp, $args) {
+    public function insert($req, $resp, $args)
+    {
         $var = $req->getParsedBody();
         $user = new User(0, $var["name"], $var["email"], $var["departmentId"]);
         $dao = new UserDAO();
@@ -32,7 +62,8 @@ class UserCtrl {
         return $resp;
     }
 
-    public function update($req, $resp, $args) {
+    public function update($req, $resp, $args)
+    {
         $id = (int) $args["id"];
         $var = $req->getParsedBody();
         $user = new User($id, $var["name"], $var["email"], $var["departmentId"]);
@@ -43,7 +74,8 @@ class UserCtrl {
         return $resp;
     }
 
-    public function delete($req, $resp, $args) {
+    public function delete($req, $resp, $args)
+    {
         $id = (int) $args["id"];
         $dao = new UserDAO();
         $user = $dao->searchById($id);
@@ -53,4 +85,3 @@ class UserCtrl {
         return $resp;
     }
 }
-?>

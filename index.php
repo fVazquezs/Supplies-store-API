@@ -6,8 +6,8 @@ require_once "src/product/ProductCtrl.php";
 require_once "src/user/UserCtrl.php";
 require_once "src/order/OrderCtrl.php";
 
-// require_once "jwt/jwtauth.php";
-// require_once "jwt/jwtmiddleware.php";
+require_once "src/jwt/jwtauth.php";
+require_once "src/jwt/jwtmiddleware.php";
 
 require "vendor/autoload.php";
 
@@ -18,6 +18,7 @@ $config = ['settings'=> [
 
 $app = new \Slim\App($config);
 
+$app->post("/authenticate", "UserCtrl:authenticate");
 
 $app->group(
     "/departments",
@@ -28,7 +29,7 @@ $app->group(
         $this->put("/{id:[0-9]+}", "DepartmentCtrl:update");
         $this->delete("/{id:[0-9]+}", "DepartmentCtrl:delete");
     }
-);
+    )->add(new JwtMiddleware())->add(jwtAuth());
 
 $app->group(
     "/products",
@@ -39,7 +40,7 @@ $app->group(
         $this->put("/{id:[0-9]+}", "ProductCtrl:update");
         $this->delete("/{id:[0-9]+}", "ProductCtrl:delete");
     }
-);
+    )->add(new JwtMiddleware())->add(jwtAuth());
 
 $app->group(
     "/users",
@@ -50,7 +51,8 @@ $app->group(
         $this->put("/{id:[0-9]+}", "UserCtrl:update");
         $this->delete("/{id:[0-9]+}", "UserCtrl:delete");
     }
-);
+    )->add(new JwtMiddleware())->add(jwtAuth());
+
 
 $app->group(
     "/orders",
@@ -61,6 +63,6 @@ $app->group(
         $this->put("/{id:[0-9]+}", "OrderCtrl:update");
         $this->delete("/{id:[0-9]+}", "OrderCtrl:delete");
     }
-);
+    )->add(new JwtMiddleware())->add(jwtAuth());
 
 $app->run();
