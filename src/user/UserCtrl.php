@@ -37,6 +37,7 @@ class UserCtrl
         $list = $dao->list();
         $resp = $resp->withJson($list);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         return $resp;
     }
 
@@ -47,6 +48,7 @@ class UserCtrl
         $user = $dao->searchById($id);
         $resp = $resp->withJson($user);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         return $resp;
     }
 
@@ -58,6 +60,7 @@ class UserCtrl
         $dao->insert($user);
         $resp = $resp->withJson($user);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         $resp = $resp->withStatus(201);
         return $resp;
     }
@@ -71,6 +74,7 @@ class UserCtrl
         $dao->update($user);
         $resp = $resp->withJson($user);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -82,6 +86,7 @@ class UserCtrl
         $dao->delete($id);
         $resp = $resp->withJson($user);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 }

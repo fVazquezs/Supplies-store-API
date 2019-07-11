@@ -9,6 +9,7 @@ class ProductCtrl {
         $list = $dao->list();
         $resp = $resp->withJson($list);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -18,6 +19,7 @@ class ProductCtrl {
         $product = $dao->searchById($id);
         $resp = $resp->withJson($product);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -28,6 +30,7 @@ class ProductCtrl {
         $dao->insert($product);
         $resp = $resp->withJson($product);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         $resp = $resp->withStatus(201);
         return $resp;
     }
@@ -40,6 +43,7 @@ class ProductCtrl {
         $dao->update($product);
         $resp = $resp->withJson($product);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -50,6 +54,7 @@ class ProductCtrl {
         $dao->delete($id);
         $resp = $resp->withJson($product);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 }

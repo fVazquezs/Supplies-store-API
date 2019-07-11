@@ -1,0 +1,640 @@
+{
+	"info": {
+		"_postman_id": "948afde4-8d5d-4cd2-8ac4-f535a47b8863",
+		"name": "supplies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"fernando@vazquez.com\",\n\t\"senha\": \"fernando\"\n}"
+				},
+				"url": {
+					"raw": "http:///supplies-store.herokuapp.com/authenticate",
+					"host": [
+						"http:"
+					],
+					"port": "",
+					"path": [
+						"",
+						"",
+						"supplies-store.herokuapp.com",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List department",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX25hbWUiOiJGZXJuYW5kbyIsImxvZ2luX2RhdGV0aW1lIjp7ImRhdGUiOiIyMDE5LTA1LTAyIDExOjA2OjI1LjMxNDk2NSIsInRpbWV6b25lX3R5cGUiOjMsInRpbWV6b25lIjoiQW1lcmljYVwvU2FvX3BhdWxvIn19.RzYTP0tsk12I_n1WAZTsx8cFVYah1c-UMfx0P3kL6To",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/departments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search department by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/departments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"departments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create department",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Arts\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/departments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update department",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\" : \"arroz\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/departments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"departments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete department",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/departments/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"departments",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search product by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Pen\",\n\t\"description\": \"best pen in the world\",\n\t\"imgPath\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Pen\",\n\t\"description\": \" pen in the world\",\n\t\"imgPath\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJ1c2VyX25hbWUiOm51bGx9.Iwu9LYH4HaIilNvIZEHY6iPAxrFfvx1Yj6blhhR_J1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://supplies-store.herokuapp.com/users",
+					"protocol": "http",
+					"host": [
+						"supplies-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search user by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJ1c2VyX25hbWUiOm51bGx9.Iwu9LYH4HaIilNvIZEHY6iPAxrFfvx1Yj6blhhR_J1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://supplies-store.herokuapp.com/users/2",
+					"protocol": "https",
+					"host": [
+						"supplies-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJ1c2VyX25hbWUiOm51bGx9.Iwu9LYH4HaIilNvIZEHY6iPAxrFfvx1Yj6blhhR_J1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Fernando\",\n\t\"email\": \"fernando@vaz.com\",\n\t\"password\": \"test\",\n\t\"departmentId\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://supplies-store.herokuapp.com/users",
+					"protocol": "http",
+					"host": [
+						"supplies-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Fernando vazquez\",\n\t\"email\": \"fernando.vazquez@adp.com\",\n\t\"password\": \"com\",\n\t\"departmentId\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search order by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/orders/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"orders",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"2\",\n    \"notes\": \"I'll get it by the end of the week\",\n    \"status\": \"false\",\n    \"products\": [\n        {\n            \"productId\": \"2\",\n            \"quantity\": \"4\"\n        },\n        {\n            \"productId\": \"1\",\n            \"quantity\": \"2\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"2\",\n    \"notes\": \"I'll get it by the end of the week\",\n    \"status\": \"false\",\n    \"products\": [\n        {\n            \"productId\": \"2\",\n            \"quantity\": \"4\"\n        },\n        {\n            \"productId\": \"1\",\n            \"quantity\": \"1\"\n        },\n        {\n            \"productId\": \"3\",\n            \"quantity\": \"2\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/orders/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"orders",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/Supplies-store-API/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Supplies-store-API",
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

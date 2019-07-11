@@ -9,6 +9,7 @@ class DepartmentCtrl {
         $list = $dao->list();
         $resp = $resp->withJson($list);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -18,6 +19,7 @@ class DepartmentCtrl {
         $department = $dao->searchById($id);
         $resp = $resp->withJson($department);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -28,6 +30,7 @@ class DepartmentCtrl {
         $dao->insert($department);
         $resp = $resp->withJson($department);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         $resp = $resp->withStatus(201);
         return $resp;
     }
@@ -40,6 +43,7 @@ class DepartmentCtrl {
         $dao->update($department);
         $resp = $resp->withJson($department);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -50,6 +54,7 @@ class DepartmentCtrl {
         $dao->delete($id);
         $resp = $resp->withJson($department);
         $resp = $resp->withHeader("Content-type", "application/json");
+        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 }

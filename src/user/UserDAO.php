@@ -25,7 +25,7 @@
             $command->bindParam("id", $id);
             $command->execute();
             $result = $command->fetch(PDO::FETCH_OBJ);
-            return new User($result->id, $result->name, $result->email, $row->password, $result->departmentId);
+            return new User($result->id, $result->name, $result->email, $result->password, $result->departmentId);
         }
 
         public function searchByEmail($email)
@@ -36,7 +36,7 @@
             $command->bindParam("email", $email);
             $command->execute();
             $result = $command->fetch(PDO::FETCH_OBJ);
-            return new User($result->id, $result->name, $result->email, $row->password, $result->departmentId);
+            return new User($result->id, $result->name, $result->email, $result->password, $result->departmentId);
         }
 
         public function insert(User $user)
