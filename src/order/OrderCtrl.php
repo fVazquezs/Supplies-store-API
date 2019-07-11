@@ -11,7 +11,6 @@ class OrderCtrl
         $list = $dao->list();
         $resp = $resp->withJson($list);
         $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
       return $resp;
     }
 
@@ -22,7 +21,6 @@ class OrderCtrl
         $order = $dao->searchById($id);
         $resp = $resp->withJson($order);
         $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -39,7 +37,6 @@ class OrderCtrl
         }
         $resp = $resp->withJson($order);
         $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         $resp = $resp->withStatus(201);
         return $resp;
     }
@@ -58,7 +55,6 @@ class OrderCtrl
         }
         $resp = $resp->withJson($order);
         $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 
@@ -74,7 +70,6 @@ class OrderCtrl
         $dao->delete($id);
         $resp = $resp->withJson($order);
         $resp = $resp->withHeader("Content-type", "application/json");
-        $resp = $resp->withHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         return $resp;
     }
 }
